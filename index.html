@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luxe</title>
+
+  <!-- Добавляем favicon -->
+  <link rel="icon" href="https://i.postimg.cc/yxQBzfyW/Bez-imeni-2.png" type="image/x-icon">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      background-color: #000; /* Черный фон */
+      color: #f0f0f0; /* Светлый текст */
+      overflow: hidden; /* Убираем прокрутку */
+    }
+
+    /* Контейнер для загрузочного экрана */
+    .loading-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #000; /* Черный фон */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000; /* Чтобы быть поверх всего */
+    }
+
+    /* Анимация переливки для текста LUXE */
+    .header-text {
+      font-size: 48px;
+      font-weight: bold;
+      text-decoration: none;
+      cursor: pointer;
+      background: linear-gradient(90deg, #8B008B, #FF1493, #C71585); /* Темные розовые оттенки */
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientAnimation 3s infinite ease-in-out;
+    }
+
+    /* Ключевые кадры для анимации переливки */
+    @keyframes gradientAnimation {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    /* Стили для основного контента (скрыты до завершения загрузки) */
+    .content {
+      opacity: 0; /* Начальная прозрачность */
+      transform: translateY(20px); /* Небольшое смещение вниз */
+      transition: opacity 1s ease-in-out, transform 1s ease-in-out; /* Плавный переход */
+      text-align: left;
+      padding: 20px; /* Отступы внутри контента */
+      position: relative; /* Изменено на relative */
+      top: 0; /* Прижимаем к верху */
+      left: 0;
+      width: 100%; /* Занимает всю ширину */
+    }
+
+    /* Класс для появления контента */
+    .content.visible {
+      opacity: 1; /* Полная видимость */
+      transform: translateY(0); /* Возвращаем на место */
+    }
+
+    .content img {
+      max-width: 100%; /* Ограничение ширины */
+      height: auto; /* Автоматическая высота */
+    }
+
+    h2 {
+      display: flex;
+      align-items: center;
+      color: inherit;
+    }
+
+    h2 img {
+      width: 64px; /* Ограничение ширины */
+      height: 64px; /* Ограничение высоты */
+      object-fit: cover; /* Сохраняет пропорции и обрезает изображение при необходимости */
+      margin-right: 10px; /* Отступ справа для текста */
+    }
+
+    /* Стиль для блоков текста с иконками */
+    .text-with-icon {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .text-with-icon span {
+      margin-right: 10px;
+    }
+
+    .text-with-icon img {
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+    }
+
+    /* Всплывающее уведомление */
+    #toast {
+      visibility: hidden;
+      min-width: 250px;
+      margin-left: -125px;
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      border-radius: 5px;
+      padding: 10px;
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      z-index: 1001;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+    }
+
+    #toast.show {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    /* Отступы между секциями */
+    section {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Загрузочный экран -->
+  <div class="loading-screen">
+    <a href="https://example.com" target="_blank" class="header-text">LUXE</a>
+  </div>
+
+  <!-- Основной контент -->
+  <div class="content">
+    <section>
+      <h2>
+        <img src="https://i.postimg.cc/FHT4kFf8/ico.png" alt="Иконка 1"> Играть
+      </h2>
+      <!-- Текст с иконками -->
+      <div class="text-with-icon">
+        <span id="text-to-copy-1">connect 81.163.17.83:27715</span>
+        <img src="https://i.postimg.cc/yYV6DbQJ/cop.png" alt="Копировать" onclick="copyText('text-to-copy-1')">
+      </div>
+      <div class="text-with-icon">
+        <span id="text-to-copy-2">connect 195.178.17.43:27015</span>
+        <img src="https://i.postimg.cc/yYV6DbQJ/cop.png" alt="Копировать" onclick="copyText('text-to-copy-2')">
+      </div>
+      <p><b>Сверху представлены наши сервера.</b></p>
+    </section>
+
+    <section>
+      <h2>
+        <img src="https://via.placeholder.com/30" alt="Иконка 2"> Заголовок 2
+      </h2>
+      <p>Это текст для второго раздела.</p>
+      <img src="https://via.placeholder.com/150" alt="Картинка 2">
+    </section>
+  </div>
+
+  <!-- Всплывающее уведомление -->
+  <div id="toast">Текст скопирован!</div>
+
+  <!-- Аудиофайл -->
+  <audio id="copy-sound" src="https://www.dropbox.com/scl/fi/lx5y5nzf208hq1v0gqdo8/apple-pay-succes.mp3?rlkey=9gryxid0hmm77j9q173k9nvr0&st=6h4u7wr3&dl=0&raw=1"></audio>
+
+  <script>
+    // Ждем полной загрузки DOM
+    document.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => {
+        const loadingScreen = document.querySelector('.loading-screen');
+        const content = document.querySelector('.content');
+
+        // Скрываем загрузочный экран
+        loadingScreen.style.display = 'none';
+
+        // Показываем основной контент с анимацией
+        content.classList.add('visible');
+      }, 3000); // Задержка в 3 секунды
+    });
+
+    // Функция для копирования текста
+    function copyText(elementId) {
+      const textToCopy = document.getElementById(elementId).innerText;
+      const toast = document.getElementById('toast');
+      const sound = document.getElementById('copy-sound');
+
+      // Копируем текст в буфер обмена
+      navigator.clipboard.writeText(textToCopy).then(() => {
+        // Воспроизводим звук
+        sound.currentTime = 0; // Перематываем аудио на начало
+        sound.play();
+
+        // Показываем уведомление
+        toast.textContent = `Текст скопирован`;
+        toast.classList.add('show');
+
+        // Скрываем уведомление через 3 секунды
+        setTimeout(() => {
+          toast.classList.remove('show');
+        }, 3000);
+      }).catch(err => {
+        console.error('Ошибка при копировании текста: ', err);
+      });
+    }
+  </script>
+</body>
+</html>
