@@ -1,12 +1,69 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Luxe</title>
   <!-- Добавляем favicon -->
   <link rel="icon" href="https://i.postimg.cc/bw6qvcFL/Bez-imeni-2.png?v=1" type="image/x-icon">
   <style>
+  /* Базовые стили для всех устройств */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+  color: #f0f0f0;
+}
+
+.sidebar {
+  width: 250px; /* Ширина боковой панели для больших экранов */
+  height: 100vh;
+  background-color: #1a1a1a;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+/* Стили для планшетов (ширина экрана до 768px) */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%; /* Боковая панель занимает всю ширину */
+    height: auto; /* Высота зависит от содержимого */
+    position: relative;
+  }
+
+  .main-content {
+    padding: 10px; /* Уменьшаем отступы */
+  }
+}
+
+/* Стили для мобильных устройств (ширина экрана до 480px) */
+@media (max-width: 480px) {
+  body {
+    font-size: 14px; /* Уменьшаем размер текста */
+  }
+
+  .sidebar a {
+    padding: 8px; /* Уменьшаем отступы в меню */
+    font-size: 14px;
+  }
+
+  .main-content h2 {
+    font-size: 20px; /* Уменьшаем заголовки */
+  }
+
+  .main-content img {
+    max-width: 100%; /* Изображения адаптируются под ширину экрана */
+  }
+}
   /* Стилизация текста с правами */
 .sidebar .copyright {
   position: absolute; /* Абсолютное позиционирование */
@@ -264,7 +321,10 @@ body {
     <img src="https://i.postimg.cc/FHT4kFf8/ico.png?v=1" alt="Иконка 1"> Играть
   </a>
   <a href="#" class="menu-item" data-section="section2">
-    <img src="https://i.postimg.cc/5yGDCYtp/setting.png?v=1" alt="Иконка 2"> Использование данных
+    <img src="https://i.postimg.cc/nrzBr7C0/20.png" alt="Иконка 2"> Использование данных
+  </a>
+  <a href="#" class="menu-item" data-section="section3">
+    <img src="https://i.postimg.cc/FsM0ZYYn/19.png" alt="Иконка 3"> Пустой рабочий стол
   </a>
   <!-- Добавляем текст в левый нижний угол -->
   <div class="copyright">
@@ -290,7 +350,7 @@ body {
     </section>
     <section id="section2">
       <h2>
-        <img src="https://i.postimg.cc/5yGDCYtp/setting.png?v=1" alt="Иконка 2"> Использование данных
+        <img src="https://i.postimg.cc/nrzBr7C0/20.png" alt="Иконка 2"> Использование данных
       </h2>
       <p>Проверка на читы через ИСПОЛЬЗОВАНИЕ ДАННЫХ в CS2.</p>
       <h3>Начало</h3>
@@ -324,13 +384,15 @@ body {
 	  <h3>2.Использование данных сломано ( Ничего не отображает )</h3>
 	  <p>Эта проблема возникает из-за того, что игрок через софт вырезал эту функцию из системы. Восстановить не получится,так что пропустите этот пункт проверки и проверяйте дальше!</p> 
 	  <img src="https://i.postimg.cc/cCSh9CM1/18.avif" alt="77">
-	  
-	  
-	  
-	  
-	  
-    </section>
-  </div>
+	  </section>
+	<section id="section3">
+    <h2><img src="https://i.postimg.cc/FsM0ZYYn/19.png" alt="Иконка 3"> Пустой рабочий стол</h2>
+    <p>Показ рабочего стола</p>
+    <p>Зачастую читеры думают,что все админы дурачки и прячут на рабочем столе,скрывая значки рабочего стола,чтобы вернуть,нажмите ПКМ -> Вид -> Отображать значки рабочего стола.</p>
+	<p><b>Подробнее будет написано в проверке через прогу</b></p>
+	
+  </section>
+</div>
 
   <!-- Всплывающее уведомление -->
   <div id="toast">Текст скопирован!</div>
