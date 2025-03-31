@@ -6,6 +6,7 @@
   <title>Luxe</title>
   <link rel="icon" href="https://i.postimg.cc/bw6qvcFL/Bez-imeni-2.png?v=1" type="image/x-icon">
   <style>
+    /* Базовые стили */
     body {
       font-family: Arial, sans-serif;
       margin: 0;
@@ -136,15 +137,9 @@
       animation: gradientAnimation 3s infinite ease-in-out;
     }
     @keyframes gradientAnimation {
-      0% {
-        background-position: 0% 50%;
-      }
-      50% {
-        background-position: 100% 50%;
-      }
-      100% {
-        background-position: 0% 50%;
-      }
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
     #toast {
       visibility: hidden;
@@ -186,6 +181,28 @@
     }
     #section2::-webkit-scrollbar-thumb:hover {
       background: #4B0082;
+    }
+    .sidebar .copyright {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      font-size: 11px;
+      color: #888;
+      text-align: left;
+      pointer-events: none;
+      user-select: none;
+    }
+    body {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+    .text-with-icon span {
+      -webkit-user-select: text;
+      -moz-user-select: text;
+      -ms-user-select: text;
+      user-select: text;
     }
   </style>
 </head>
@@ -269,13 +286,14 @@
       <p>Зачастую читеры думают, что все админы дурачки и прячут на рабочем столе, скрывая значки рабочего стола, чтобы вернуть, нажмите ПКМ -> Вид -> Отображать значки рабочего стола.</p>
       <p><b>Подробнее будет написано в проверке через прогу</b></p>
     </section>
+    <section id="section4">
+      <h2><img src="https://disk.yandex.ru/i/Mj9vojpxFiHe6Q" alt="Иконка 4"> Браузер</h2>
+    </section>
   </div>
   <div id="toast">Текст скопирован!</div>
   <audio id="copy-sound" src="https://www.dropbox.com/scl/fi/lx5y5nzf208hq1v0gqdo8/apple-pay-succes.mp3?rlkey=9gryxid0hmm77j9q173k9nvr0&st=6h4u7wr3&dl=0&raw=1"></audio>
   <script>
-    document.addEventListener('contextmenu', (e) => {
-      e.preventDefault();
-    });
+    document.addEventListener('contextmenu', e => e.preventDefault());
     document.addEventListener('DOMContentLoaded', () => {
       const menuItems = document.querySelectorAll('.menu-item');
       const sections = document.querySelectorAll('.main-content section');
@@ -283,7 +301,7 @@
         document.querySelector('.loading-screen').style.display = 'none';
       }, 3000);
       menuItems.forEach(item => {
-        item.addEventListener('click', (e) => {
+        item.addEventListener('click', e => {
           e.preventDefault();
           menuItems.forEach(menuItem => menuItem.classList.remove('active'));
           item.classList.add('active');
@@ -292,12 +310,9 @@
           document.getElementById(targetSectionId).classList.add('active');
         });
       });
-      const copyIcon1 = document.getElementById('copy-icon-1');
-      const copyIcon2 = document.getElementById('copy-icon-2');
-      retryImageLoad(copyIcon1, 'https://i.postimg.cc/yYV6DbQJ/cop.png?v=1');
-      retryImageLoad(copyIcon2, 'https://i.postimg.cc/yYV6DbQJ/cop.png?v=1');
-      const sound = document.getElementById('copy-sound');
-      retryAudioLoad(sound, 'https://www.dropbox.com/scl/fi/lx5y5nzf208hq1v0gqdo8/apple-pay-succes.mp3?rlkey=9gryxid0hmm77j9q173k9nvr0&st=6h4u7wr3&dl=0&raw=1');
+      retryImageLoad(document.getElementById('copy-icon-1'), 'https://i.postimg.cc/yYV6DbQJ/cop.png?v=1');
+      retryImageLoad(document.getElementById('copy-icon-2'), 'https://i.postimg.cc/yYV6DbQJ/cop.png?v=1');
+      retryAudioLoad(document.getElementById('copy-sound'), 'https://www.dropbox.com/scl/fi/lx5y5nzf208hq1v0gqdo8/apple-pay-succes.mp3?rlkey=9gryxid0hmm77j9q173k9nvr0&st=6h4u7wr3&dl=0&raw=1');
     });
     function retryImageLoad(imageElement, imageUrl, retries = 3, delay = 1000) {
       let attempts = 0;
@@ -340,12 +355,8 @@
         sound.play();
         toast.textContent = `Текст скопирован`;
         toast.classList.add('show');
-        setTimeout(() => {
-          toast.classList.remove('show');
-        }, 3000);
-      }).catch(err => {
-        console.error('Ошибка при копировании текста: ', err);
-      });
+        setTimeout(() => toast.classList.remove('show'), 3000);
+      }).catch(err => console.error('Ошибка при копировании текста: ', err));
     }
   </script>
 </body>
