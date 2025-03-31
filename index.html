@@ -5,10 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Luxe</title>
-  <!-- Добавляем favicon -->
   <link rel="icon" href="https://i.postimg.cc/bw6qvcFL/Bez-imeni-2.png?v=1" type="image/x-icon">
   <style>
-  /* Базовые стили для всех устройств */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -18,7 +16,7 @@ body {
 }
 
 .sidebar {
-  width: 250px; /* Ширина боковой панели для больших экранов */
+  width: 250px;
   height: 100vh;
   background-color: #1a1a1a;
   padding: 20px;
@@ -32,95 +30,88 @@ body {
   overflow-y: auto;
 }
 
-/* Стили для планшетов (ширина экрана до 768px) */
 @media (max-width: 768px) {
   .sidebar {
-    width: 100%; /* Боковая панель занимает всю ширину */
-    height: auto; /* Высота зависит от содержимого */
+    width: 100%;
+    height: auto;
     position: relative;
   }
 
   .main-content {
-    padding: 10px; /* Уменьшаем отступы */
+    padding: 10px;
   }
 }
 
-/* Стили для мобильных устройств (ширина экрана до 480px) */
 @media (max-width: 480px) {
   body {
-    font-size: 14px; /* Уменьшаем размер текста */
+    font-size: 14px;
   }
 
   .sidebar a {
-    padding: 8px; /* Уменьшаем отступы в меню */
+    padding: 8px;
     font-size: 14px;
   }
 
   .main-content h2 {
-    font-size: 20px; /* Уменьшаем заголовки */
+    font-size: 20px;
   }
 
   .main-content img {
-    max-width: 100%; /* Изображения адаптируются под ширину экрана */
+    max-width: 100%;
   }
 }
-  /* Стилизация текста с правами */
 .sidebar .copyright {
-  position: absolute; /* Абсолютное позиционирование */
-  bottom: 10px; /* Отступ снизу */
-  left: 10px; /* Отступ слева */
-  font-size: 11px; /* Размер шрифта */
-  color: #888; /* Цвет текста */
-  text-align: left; /* Выравнивание текста */
-  pointer-events: none; /* Защита от выделения */
-  user-select: none; /* Защита от выделения */
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  font-size: 11px;
+  color: #888;
+  text-align: left;
+  pointer-events: none;
+  user-select: none;
 }
-  /* Защита от выделения текста */
 body {
-  -webkit-user-select: none; /* Для WebKit (Chrome, Safari) */
-  -moz-user-select: none; /* Для Firefox */
-  -ms-user-select: none; /* Для старых версий IE */
-  user-select: none; /* Стандартный способ */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
-/* Исключение для текста, который можно копировать */
 .text-with-icon span {
   -webkit-user-select: text;
   -moz-user-select: text;
   -ms-user-select: text;
   user-select: text;
 }
-    /* Общие стили */
     body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #000; /* Черный фон */
-      color: #f0f0f0; /* Светлый текст */
-      overflow: hidden; /* Убираем прокрутку */
-      display: flex; /* Разделяем экран на две части */
+      background-color: #000;
+      color: #f0f0f0;
+      overflow: hidden;
+      display: flex;
     }
 
-    /* Боковая панель */
     .sidebar {
       width: 250px;
       height: 100vh;
-      background-color: #1a1a1a; /* Темно-серый фон */
+      background-color: #1a1a1a;
       padding: 20px;
       box-sizing: border-box;
-      overflow-y: auto; /* Добавляем прокрутку, если много элементов */
+      overflow-y: auto;
     }
     .sidebar img.logo {
       display: block;
       width: 100px;
-      margin: 0 auto 20px; /* Центрируем логотип */
+      margin: 0 auto 20px;
     }
     .sidebar a {
       display: flex;
-      align-items: center; /* Выравниваем текст по вертикали относительно иконки */
+      align-items: center;
       padding: 10px;
       margin-bottom: 5px;
-      background-color: #2a2a2a; /* Фон пунктов меню */
+      background-color: #2a2a2a;
       color: #8b00ff;
       text-decoration: none;
       border-radius: 5px;
@@ -128,80 +119,73 @@ body {
     }
     .sidebar a:hover,
     .sidebar a.active {
-      background-color: #8b00ff; /* Цвет при наведении или активном пункте */
+      background-color: #8b00ff;
       color: #000;
     }
     .sidebar a img {
       width: 24px;
       height: 24px;
-      margin-right: 10px; /* Отступ между иконкой и текстом */
+      margin-right: 10px;
     }
 
-    /* Основной контент */
     .main-content {
       flex-grow: 1;
       padding: 20px;
-      overflow-y: auto; /* Прокрутка работает, но скрыта */
-      scrollbar-width: thin; /* Тонкий скролл для Firefox */
-      scrollbar-color: #FF1493 transparent; /* Цвет бегунка и фона */
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: #FF1493 transparent;
     }
 
-    /* Стилизация скролла для WebKit (Chrome, Safari) */
     .main-content::-webkit-scrollbar {
-      width: 8px; /* Ширина скролла */
+      width: 8px;
     }
     .main-content::-webkit-scrollbar-track {
-      background: #1a1a1a; /* Цвет фона скролла */
-      border-radius: 10px; /* Закругление фона */
+      background: #1a1a1a;
+      border-radius: 10px;
     }
     .main-content::-webkit-scrollbar-thumb {
-      background: #FF1493; /* Цвет "бегунка" скролла */
-      border-radius: 10px; /* Закругление бегунка */
+      background: #FF1493;
+      border-radius: 10px;
     }
     .main-content::-webkit-scrollbar-thumb:hover {
-      background: #C71585; /* Цвет при наведении */
+      background: #C71585;
     }
 
     .main-content section {
-      display: none; /* По умолчанию все разделы скрыты */
+      display: none;
     }
     .main-content section.active {
-      display: block; /* Показываем только активный раздел */
-    }
+      display: block;
 
-    /* Заголовки с иконками */
     .main-content h2 {
       display: flex;
-      align-items: center; /* Выравниваем текст по вертикали относительно иконки */
+      align-items: center;
       margin-bottom: 20px;
     }
     .main-content h2 img {
-      width: 48px; /* Размер иконки */
-      height: 48px; /* Размер иконки */
-      margin-right: 10px; /* Отступ между иконкой и текстом */
+      width: 48px;
+      height: 48px;
+      margin-right: 10px;
     }
 
-    /* Подзаголовки */
     .main-content h3 {
       margin-top: 20px;
       margin-bottom: 10px;
-      color: #8b00ff; /* Розовый цвет */
+      color: #8b00ff;
     }
 
-    /* Иконки для копирования */
     .text-with-icon {
       display: flex;
-      align-items: center; /* Выравниваем текст и иконку по центру */
+      align-items: center;
       margin-bottom: 10px;
     }
     .text-with-icon img {
-      width: 24px; /* Стандартный размер иконки */
-      height: 24px; /* Стандартный размер иконки */
-      margin-left: 10px; /* Отступ между текстом и иконкой */
+      width: 24px;
+      height: 24px;
+      margin-left: 10px;
       cursor: pointer;
     }
 
-    /* Картинки */
     .main-content img {
       max-width: 100%;
       height: auto;
@@ -209,13 +193,11 @@ body {
       margin-bottom: 10px;
     }
 
-    /* Расположение картинок друг под другом */
     .stacked-images img {
       display: block;
-      margin-bottom: 10px; /* Отступ между картинками */
+      margin-bottom: 10px;
     }
 
-    /* Загрузочный экран */
     .loading-screen {
       position: fixed;
       top: 0;
@@ -229,7 +211,6 @@ body {
       z-index: 1000;
     }
 
-    /* Анимация переливки для текста LUXE */
     .header-text {
       font-size: 48px;
       font-weight: bold;
@@ -254,7 +235,6 @@ body {
       }
     }
 
-    /* Всплывающее уведомление */
     #toast {
       visibility: hidden;
       min-width: 250px;
@@ -275,46 +255,41 @@ body {
       visibility: visible;
       opacity: 1;
     }
-	/* Стилизация скролла для раздела "Использование данных" */
 #section2 {
-  overflow-y: auto; /* Включаем прокрутку */
-  max-height: calc(100vh - 40px); /* Ограничиваем высоту раздела */
-  padding: 20px; /* Отступы внутри раздела */
+  overflow-y: auto;
+  max-height: calc(100vh - 40px);
+  padding: 20px;
 }
 
-/* Стилизация скролла для Firefox */
 #section2 {
-  scrollbar-width: thin; /* Тонкий скролл */
-  scrollbar-color: #8B008B transparent; /* Фиолетовый цвет бегунка */
+  scrollbar-width: thin;
+  scrollbar-color: #8B008B transparent;
 }
 
-/* Стилизация скролла для WebKit (Chrome, Safari, Edge) */
 #section2::-webkit-scrollbar {
-  width: 8px; /* Ширина скролла */
+  width: 8px;
 }
 
 #section2::-webkit-scrollbar-track {
-  background: #1a1a1a; /* Цвет фона скролла */
-  border-radius: 10px; /* Закругление фона */
+  background: #1a1a1a;
+  border-radius: 10px;
 }
 
 #section2::-webkit-scrollbar-thumb {
-  background: #8B008B; /* Фиолетовый цвет бегунка */
-  border-radius: 10px; /* Закругление бегунка */
+  background: #8B008B;
+  border-radius: 10px;
 }
 
 #section2::-webkit-scrollbar-thumb:hover {
-  background: #4B0082; /* Темно-фиолетовый цвет при наведении */
+  background: #4B0082;
 }
   </style>
 </head>
 <body>
-  <!-- Загрузочный экран -->
   <div class="loading-screen">
     <a href="#" class="header-text">LUXE</a>
   </div>
 
-  <!-- Боковая панель -->
   <div class="sidebar">
   <img src="https://i.postimg.cc/bw6qvcFL/Bez-imeni-2.png?v=1" alt="Логотип" class="logo">
   <a href="#" class="menu-item active" data-section="section1">
@@ -329,13 +304,11 @@ body {
 	  <a href="#" class="menu-item" data-section="section4">
     <img src="https://i.postimg.cc/FsM0ZYYn/19.png" alt="Иконка 4"> Браузер
   </a>
-  <!-- Добавляем текст в левый нижний угол -->
   <div class="copyright">
     ©2025 Zerio Command.Все права защищены.
   </div>
 </div>
 
-  <!-- Основной контент -->
   <div class="main-content">
     <section id="section1" class="active">
       <h2>
@@ -397,48 +370,37 @@ body {
   </section>
 </div>
 
-  <!-- Всплывающее уведомление -->
   <div id="toast">Текст скопирован!</div>
 
-  <!-- Аудиофайл -->
   <audio id="copy-sound" src="https://www.dropbox.com/scl/fi/lx5y5nzf208hq1v0gqdo8/apple-pay-succes.mp3?rlkey=9gryxid0hmm77j9q173k9nvr0&st=6h4u7wr3&dl=0&raw=1"></audio>
 
   <script>
-  // Блокировка контекстного меню
 document.addEventListener('contextmenu', (e) => {
-  e.preventDefault(); // Отменяем действие по умолчанию
+  e.preventDefault();
 });
-    // Обработчик для боковой панели
     document.addEventListener('DOMContentLoaded', () => {
       const menuItems = document.querySelectorAll('.menu-item');
       const sections = document.querySelectorAll('.main-content section');
 
-      // Скрываем загрузочный экран через 3 секунды
       setTimeout(() => {
         document.querySelector('.loading-screen').style.display = 'none';
       }, 3000);
 
-      // Обработка кликов по пунктам меню
       menuItems.forEach(item => {
         item.addEventListener('click', (e) => {
           e.preventDefault();
 
-          // Удаляем класс active у всех пунктов меню
           menuItems.forEach(menuItem => menuItem.classList.remove('active'));
 
-          // Добавляем класс active к текущему пункту
           item.classList.add('active');
 
-          // Скрываем все разделы
           sections.forEach(section => section.classList.remove('active'));
 
-          // Показываем выбранный раздел
           const targetSectionId = item.getAttribute('data-section');
           document.getElementById(targetSectionId).classList.add('active');
         });
       });
 
-      // Проверяем загрузку изображений
       const icon1 = document.getElementById('icon-1');
       const copyIcon1 = document.getElementById('copy-icon-1');
       const copyIcon2 = document.getElementById('copy-icon-2');
@@ -451,12 +413,10 @@ document.addEventListener('contextmenu', (e) => {
       retryImageLoad(icon2, 'https://i.postimg.cc/5yGDCYtp/setting.png?v=1');
       retryImageLoad(image2, 'https://via.placeholder.com/150?v=1');
 
-      // Проверяем загрузку аудио
       const sound = document.getElementById('copy-sound');
       retryAudioLoad(sound, 'https://www.dropbox.com/scl/fi/lx5y5nzf208hq1v0gqdo8/apple-pay-succes.mp3?rlkey=9gryxid0hmm77j9q173k9nvr0&st=6h4u7wr3&dl=0&raw=1');
     });
 
-    // Функция для повторной попытки загрузки изображений
     function retryImageLoad(imageElement, imageUrl, retries = 3, delay = 1000) {
       let attempts = 0;
 
@@ -476,7 +436,6 @@ document.addEventListener('contextmenu', (e) => {
       loadImage();
     }
 
-    // Функция для повторной попытки загрузки аудио
     function retryAudioLoad(audioElement, audioUrl, retries = 3, delay = 1000) {
       let attempts = 0;
 
@@ -496,7 +455,6 @@ document.addEventListener('contextmenu', (e) => {
       loadAudio();
     }
 
-    // Функция для копирования текста
     function copyText(elementId) {
       const textToCopy = document.getElementById(elementId).innerText;
       const toast = document.getElementById('toast');
