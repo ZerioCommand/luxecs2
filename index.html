@@ -6,46 +6,7 @@
   <title>Luxe</title>
   <link rel="icon" href="https://i.postimg.cc/bw6qvcFL/Bez-imeni-2.png?v=1" type="image/x-icon">
   <style>
-    /* Стили для поисковой строки */
-    .search-bar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background-color: #1a1a1a;
-      padding: 10px;
-      box-sizing: border-box;
-      z-index: 1002;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .search-bar input {
-      width: 300px;
-      padding: 10px;
-      font-size: 16px;
-      border: none;
-      border-radius: 5px;
-      outline: none;
-      background-color: #2a2a2a;
-      color: #f0f0f0;
-      transition: background-color 0.3s ease;
-    }
-    .search-bar input:focus {
-      background-color: #3a3a3a;
-    }
-    .search-bar input::placeholder {
-      color: #888;
-      animation: placeholderAnimation 5s infinite ease-in-out;
-    }
-    @keyframes placeholderAnimation {
-      0% { content: "Поиск..."; }
-      33% { content: "Введите слово..."; }
-      66% { content: "Найдите информацию..."; }
-      100% { content: "Поиск..."; }
-    }
-
-    /* Общие стили */
+    /* Базовые стили */
     body {
       font-family: Arial, sans-serif;
       margin: 0;
@@ -54,20 +15,40 @@
       color: #f0f0f0;
       overflow: hidden;
       display: flex;
-      position: relative;
-    }
-    .main-container {
-      display: flex;
-      flex-grow: 1;
-      margin-top: 60px; /* Отступ под поисковую строку */
     }
     .sidebar {
       width: 250px;
-      height: calc(100vh - 60px);
+      height: 100vh;
       background-color: #1a1a1a;
       padding: 20px;
       box-sizing: border-box;
       overflow-y: auto;
+    }
+    .sidebar img.logo {
+      display: block;
+      width: 100px;
+      margin: 0 auto 20px;
+    }
+    .sidebar a {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      margin-bottom: 5px;
+      background-color: #2a2a2a;
+      color: #8b00ff;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+    .sidebar a:hover,
+    .sidebar a.active {
+      background-color: #8b00ff;
+      color: #000;
+    }
+    .sidebar a img {
+      width: 24px;
+      height: 24px;
+      margin-right: 10px;
     }
     .main-content {
       flex-grow: 1;
@@ -226,131 +207,99 @@
   </style>
 </head>
 <body>
-  <!-- Поисковая строка -->
-  <div class="search-bar">
-    <input type="text" id="search-input" placeholder="Поиск..." oninput="performSearch()">
+  <div class="loading-screen">
+    <a href="#" class="header-text">LUXE</a>
   </div>
-
-  <!-- Основной контейнер -->
-  <div class="main-container">
-    <!-- Боковая панель -->
-    <div class="sidebar">
-      <img src="https://i.postimg.cc/bw6qvcFL/Bez-imeni-2.png?v=1" alt="Логотип" class="logo">
-      <a href="#" class="menu-item active" data-section="section1">
+  <div class="sidebar">
+    <img src="https://i.postimg.cc/bw6qvcFL/Bez-imeni-2.png?v=1" alt="Логотип" class="logo">
+    <a href="#" class="menu-item active" data-section="section1">
+      <img src="https://i.postimg.cc/FHT4kFf8/ico.png?v=1" alt="Иконка 1"> Играть
+    </a>
+    <a href="#" class="menu-item" data-section="section2">
+      <img src="https://i.postimg.cc/nrzBr7C0/20.png" alt="Иконка 2"> Использование данных
+    </a>
+    <a href="#" class="menu-item" data-section="section3">
+      <img src="https://i.postimg.cc/FsM0ZYYn/19.png" alt="Иконка 3"> Пустой рабочий стол
+    </a>
+    <a href="#" class="menu-item" data-section="section4">
+      <img src="https://i.postimg.cc/FsM0ZYYn/19.png" alt="Иконка 4"> Браузер
+    </a>
+    <div class="copyright">
+      ©2025 Zerio Command. Все права защищены.
+    </div>
+  </div>
+  <div class="main-content">
+    <section id="section1" class="active">
+      <h2>
         <img src="https://i.postimg.cc/FHT4kFf8/ico.png?v=1" alt="Иконка 1"> Играть
-      </a>
-      <a href="#" class="menu-item" data-section="section2">
-        <img src="https://i.postimg.cc/nrzBr7C0/20.png" alt="Иконка 2"> Использование данных
-      </a>
-      <a href="#" class="menu-item" data-section="section3">
-        <img src="https://i.postimg.cc/FsM0ZYYn/19.png" alt="Иконка 3"> Пустой рабочий стол
-      </a>
-      <a href="#" class="menu-item" data-section="section4">
-        <img src="https://i.postimg.cc/FsM0ZYYn/19.png" alt="Иконка 4"> Браузер
-      </a>
-      <div class="copyright">
-        ©2025 Zerio Command. Все права защищены.
+      </h2>
+      <div class="text-with-icon">
+        <span id="text-to-copy-1">connect 81.163.17.83:27715</span>
+        <img src="https://i.postimg.cc/yYV6DbQJ/cop.png?v=1" alt="Копировать" onclick="copyText('text-to-copy-1')" id="copy-icon-1">
       </div>
-    </div>
-
-    <!-- Основной контент -->
-    <div class="main-content">
-      <section id="section1" class="active">
-        <h2>
-          <img src="https://i.postimg.cc/FHT4kFf8/ico.png?v=1" alt="Иконка 1"> Играть
-        </h2>
-        <div class="text-with-icon">
-          <span id="text-to-copy-1">connect 81.163.17.83:27715</span>
-          <img src="https://i.postimg.cc/yYV6DbQJ/cop.png?v=1" alt="Копировать" onclick="copyText('text-to-copy-1')" id="copy-icon-1">
-        </div>
-        <div class="text-with-icon">
-          <span id="text-to-copy-2">connect 195.178.17.43:27015</span>
-          <img src="https://i.postimg.cc/yYV6DbQJ/cop.png?v=1" alt="Копировать" onclick="copyText('text-to-copy-2')" id="copy-icon-2">
-        </div>
-        <p><b>Сверху представлены наши сервера.</b></p>
-      </section>
-      <section id="section2">
-        <h2>
-          <img src="https://i.postimg.cc/nrzBr7C0/20.png" alt="Иконка 2"> Использование данных
-        </h2>
-        <p>Проверка на читы через ИСПОЛЬЗОВАНИЕ ДАННЫХ в CS2.</p>
-        <h3>Начало</h3>
-        <p>С помощью этого способа можно легко понять, какие запускались приложения использующие интернет.</p>
-        <h3>Открытие раздела Сеть и Интернет</h3>
-        <p>Что бы открыть использовании данных есть несколько простых способов.</p>
-        <p>Нажмите [ WIN + I ], эта комбинация откроет главную страницу настроек, после этого откройте раздел «Сеть и Интернет».</p>
-        <img src="https://i.postimg.cc/brDtzJF1/10.jpg" alt="34">
-        <h3>Открытие панели использования данных</h3>
-        <p>В зависимости от системы, этот пункт может находиться в разных местах на Win 10</p>
-        <img src="https://i.postimg.cc/x1YRnwLq/11.jpg" alt="78">
-        <p>После нажатия откроется меню, мы видим общее количество трафика за после 30 дней. Ниже в виде списка указаны файлы и количество трафика.</p>
-        <p>Смотреть нужно только ниже 100 мегабайт, больше трафика читы не потребляют.</p>
-        <img src="https://i.postimg.cc/5NFCTnGy/12.jpg" alt="87">
-        <p>Как понять что это чит?</p>
-        <p>Вы должны сами понимать, какой файл софт, ниже представлены примеры читов</p>
-        <img src="https://i.postimg.cc/3w2KMbQ8/14.png" alt="7657">
-        <p>ㅤ</p>
-        <img src="https://i.postimg.cc/GmyRYS2F/13.png" alt="7657">
-        <p>ㅤ</p>
-        <img src="https://i.postimg.cc/DfS7nZTp/15.png" alt="7657">
-        <h3>1.Известные проблемы и обнаружение очисток</h3>
-        <b>Нет кнопки Использование данных.</b>
-        <p>Эта проблема решается очень легко, часто игроки отключают эту функцию через сервисы в системе, чтобы админы не могли их проверить.</p>
-        <p>Вам необходимо нажать [ WIN + R ], эта комбинация откроет окно «Выполнить». Введите туда «services.msc», после этого нажмите [ Enter ].</p>
-        <p>После этого в списке вы должны найти службу «Использование данных», нажать ПКМ и зайти в свойства.</p>
-        <img src="https://i.postimg.cc/4NG2wLBv/16.jpg" alt="7е7">
-        <p>После этого в свойствах, выберите Тип запуска: «Автоматически», и нажмите [Применить]. Далее загорится кнопка Запустить, нажмите на нее и нажмите [ОК].</p>
-        <p>После этого использование данных будет работать 👍</p>
-        <img src="https://i.postimg.cc/qMGbFs5P/17.jpg" alt="767">
-        <h3>2.Использование данных сломано ( Ничего не отображает )</h3>
-        <p>Эта проблема возникает из-за того, что игрок через софт вырезал эту функцию из системы. Восстановить не получится, так что пропустите этот пункт проверки и проверяйте дальше!</p>
-        <img src="https://i.postimg.cc/cCSh9CM1/18.avif" alt="77">
-      </section>
-      <section id="section3">
-        <h2><img src="https://i.postimg.cc/FsM0ZYYn/19.png" alt="Иконка 3"> Пустой рабочий стол</h2>
-        <p>Показ рабочего стола</p>
-        <p>Зачастую читеры думают, что все админы дурачки и прячут на рабочем столе, скрывая значки рабочего стола, чтобы вернуть, нажмите ПКМ -> Вид -> Отображать значки рабочего стола.</p>
-        <p><b>Подробнее будет написано в проверке через прогу</b></p>
-      </section>
-      <section id="section4">
-        <h2><img src="https://disk.yandex.ru/i/Mj9vojpxFiHe6Q" alt="Иконка 4"> Браузер</h2>
-      </section>
-    </div>
+      <div class="text-with-icon">
+        <span id="text-to-copy-2">connect 195.178.17.43:27015</span>
+        <img src="https://i.postimg.cc/yYV6DbQJ/cop.png?v=1" alt="Копировать" onclick="copyText('text-to-copy-2')" id="copy-icon-2">
+      </div>
+      <p><b>Сверху представлены наши сервера.</b></p>
+    </section>
+    <section id="section2">
+      <h2>
+        <img src="https://i.postimg.cc/nrzBr7C0/20.png" alt="Иконка 2"> Использование данных
+      </h2>
+      <p>Проверка на читы через ИСПОЛЬЗОВАНИЕ ДАННЫХ в CS2.</p>
+      <h3>Начало</h3>
+      <p>С помощью этого способа можно легко понять, какие запускались приложения использующие интернет.</p>
+      <h3>Открытие раздела Сеть и Интернет</h3>
+      <p>Что бы открыть использовании данных есть несколько простых способов.</p>
+      <p>Нажмите [ WIN + I ], эта комбинация откроет главную страницу настроек, после этого откройте раздел «Сеть и Интернет».</p>
+      <img src="https://i.postimg.cc/brDtzJF1/10.jpg" alt="34">
+      <h3>Открытие панели использования данных</h3>
+      <p>В зависимости от системы, этот пункт может находиться в разных местах на Win 10</p>
+      <img src="https://i.postimg.cc/x1YRnwLq/11.jpg" alt="78">
+      <p>После нажатия откроется меню, мы видим общее количество трафика за после 30 дней. Ниже в виде списка указаны файлы и количество трафика.</p>
+      <p>Смотреть нужно только ниже 100 мегабайт, больше трафика читы не потребляют.</p>
+      <img src="https://i.postimg.cc/5NFCTnGy/12.jpg" alt="87">
+      <p>Как понять что это чит?</p>
+      <p>Вы должны сами понимать, какой файл софт, ниже представлены примеры читов</p>
+      <img src="https://i.postimg.cc/3w2KMbQ8/14.png" alt="7657">
+      <p>ㅤ</p>
+      <img src="https://i.postimg.cc/GmyRYS2F/13.png" alt="7657">
+      <p>ㅤ</p>
+      <img src="https://i.postimg.cc/DfS7nZTp/15.png" alt="7657">
+      <h3>1.Известные проблемы и обнаружение очисток</h3>
+      <b>Нет кнопки Использование данных.</b>
+      <p>Эта проблема решается очень легко, часто игроки отключают эту функцию через сервисы в системе, чтобы админы не могли их проверить.</p>
+      <p>Вам необходимо нажать [ WIN + R ], эта комбинация откроет окно «Выполнить». Введите туда «services.msc», после этого нажмите [ Enter ].</p>
+      <p>После этого в списке вы должны найти службу «Использование данных», нажать ПКМ и зайти в свойства.</p>
+      <img src="https://i.postimg.cc/4NG2wLBv/16.jpg" alt="7е7">
+      <p>После этого в свойствах, выберите Тип запуска: «Автоматически», и нажмите [Применить]. Далее загорится кнопка Запустить, нажмите на нее и нажмите [ОК].</p>
+      <p>После этого использование данных будет работать 👍</p>
+      <img src="https://i.postimg.cc/qMGbFs5P/17.jpg" alt="767">
+      <h3>2.Использование данных сломано ( Ничего не отображает )</h3>
+      <p>Эта проблема возникает из-за того, что игрок через софт вырезал эту функцию из системы. Восстановить не получится, так что пропустите этот пункт проверки и проверяйте дальше!</p>
+      <img src="https://i.postimg.cc/cCSh9CM1/18.avif" alt="77">
+    </section>
+    <section id="section3">
+      <h2><img src="https://i.postimg.cc/FsM0ZYYn/19.png" alt="Иконка 3"> Пустой рабочий стол</h2>
+      <p>Показ рабочего стола</p>
+      <p>Зачастую читеры думают, что все админы дурачки и прячут на рабочем столе, скрывая значки рабочего стола, чтобы вернуть, нажмите ПКМ -> Вид -> Отображать значки рабочего стола.</p>
+      <p><b>Подробнее будет написано в проверке через прогу</b></p>
+    </section>
+    <section id="section4">
+      <h2><img src="https://disk.yandex.ru/i/Mj9vojpxFiHe6Q" alt="Иконка 4"> Браузер</h2>
+    </section>
   </div>
-
-  <!-- Всплывающее уведомление -->
   <div id="toast">Текст скопирован!</div>
-  <!-- Аудиофайл -->
   <audio id="copy-sound" src="https://www.dropbox.com/scl/fi/lx5y5nzf208hq1v0gqdo8/apple-pay-succes.mp3?rlkey=9gryxid0hmm77j9q173k9nvr0&st=6h4u7wr3&dl=0&raw=1"></audio>
-
   <script>
-    // Функция поиска
-    function performSearch() {
-      const query = document.getElementById('search-input').value.toLowerCase();
-      const sections = document.querySelectorAll('.main-content section');
-
-      sections.forEach(section => {
-        let found = false;
-        section.querySelectorAll('*').forEach(element => {
-          if (element.textContent.toLowerCase().includes(query)) {
-            found = true;
-          }
-        });
-        section.style.display = found ? 'block' : 'none';
-      });
-    }
-
-    // Блокировка контекстного меню
     document.addEventListener('contextmenu', e => e.preventDefault());
-
-    // Обработчик событий DOMContentLoaded
     document.addEventListener('DOMContentLoaded', () => {
       const menuItems = document.querySelectorAll('.menu-item');
       const sections = document.querySelectorAll('.main-content section');
       setTimeout(() => {
-        document.querySelector('.loading-screen')?.style.display = 'none';
+        document.querySelector('.loading-screen').style.display = 'none';
       }, 3000);
-
       menuItems.forEach(item => {
         item.addEventListener('click', e => {
           e.preventDefault();
@@ -361,13 +310,10 @@
           document.getElementById(targetSectionId).classList.add('active');
         });
       });
-
       retryImageLoad(document.getElementById('copy-icon-1'), 'https://i.postimg.cc/yYV6DbQJ/cop.png?v=1');
       retryImageLoad(document.getElementById('copy-icon-2'), 'https://i.postimg.cc/yYV6DbQJ/cop.png?v=1');
       retryAudioLoad(document.getElementById('copy-sound'), 'https://www.dropbox.com/scl/fi/lx5y5nzf208hq1v0gqdo8/apple-pay-succes.mp3?rlkey=9gryxid0hmm77j9q173k9nvr0&st=6h4u7wr3&dl=0&raw=1');
     });
-
-    // Функция повторной загрузки изображений
     function retryImageLoad(imageElement, imageUrl, retries = 3, delay = 1000) {
       let attempts = 0;
       const loadImage = () => {
@@ -384,8 +330,6 @@
       };
       loadImage();
     }
-
-    // Функция повторной загрузки аудио
     function retryAudioLoad(audioElement, audioUrl, retries = 3, delay = 1000) {
       let attempts = 0;
       const loadAudio = () => {
@@ -402,8 +346,6 @@
       };
       loadAudio();
     }
-
-    // Функция копирования текста
     function copyText(elementId) {
       const textToCopy = document.getElementById(elementId).innerText;
       const toast = document.getElementById('toast');
