@@ -1,88 +1,11 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Luxe</title>
   <link rel="icon" href="https://i.postimg.cc/bw6qvcFL/Bez-imeni-2.png?v=1" type="image/x-icon">
   <style>
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #000;
-  color: #f0f0f0;
-}
-
-.sidebar {
-  width: 250px;
-  height: 100vh;
-  background-color: #1a1a1a;
-  padding: 20px;
-  box-sizing: border-box;
-  overflow-y: auto;
-}
-
-.main-content {
-  flex-grow: 1;
-  padding: 20px;
-  overflow-y: auto;
-}
-
-@media (max-width: 768px) {
-  .sidebar {
-    width: 100%;
-    height: auto;
-    position: relative;
-  }
-
-  .main-content {
-    padding: 10px;
-  }
-}
-
-@media (max-width: 480px) {
-  body {
-    font-size: 14px;
-  }
-
-  .sidebar a {
-    padding: 8px;
-    font-size: 14px;
-  }
-
-  .main-content h2 {
-    font-size: 20px;
-  }
-
-  .main-content img {
-    max-width: 100%;
-  }
-}
-.sidebar .copyright {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  font-size: 11px;
-  color: #888;
-  text-align: left;
-  pointer-events: none;
-  user-select: none;
-}
-body {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-.text-with-icon span {
-  -webkit-user-select: text;
-  -moz-user-select: text;
-  -ms-user-select: text;
-  user-select: text;
-}
     body {
       font-family: Arial, sans-serif;
       margin: 0;
@@ -92,7 +15,6 @@ body {
       overflow: hidden;
       display: flex;
     }
-
     .sidebar {
       width: 250px;
       height: 100vh;
@@ -127,7 +49,6 @@ body {
       height: 24px;
       margin-right: 10px;
     }
-
     .main-content {
       flex-grow: 1;
       padding: 20px;
@@ -135,7 +56,6 @@ body {
       scrollbar-width: thin;
       scrollbar-color: #FF1493 transparent;
     }
-
     .main-content::-webkit-scrollbar {
       width: 8px;
     }
@@ -150,13 +70,12 @@ body {
     .main-content::-webkit-scrollbar-thumb:hover {
       background: #C71585;
     }
-
     .main-content section {
       display: none;
     }
     .main-content section.active {
       display: block;
-
+    }
     .main-content h2 {
       display: flex;
       align-items: center;
@@ -167,13 +86,11 @@ body {
       height: 48px;
       margin-right: 10px;
     }
-
     .main-content h3 {
       margin-top: 20px;
       margin-bottom: 10px;
       color: #8b00ff;
     }
-
     .text-with-icon {
       display: flex;
       align-items: center;
@@ -185,19 +102,16 @@ body {
       margin-left: 10px;
       cursor: pointer;
     }
-
     .main-content img {
       max-width: 100%;
       height: auto;
       margin-top: 10px;
       margin-bottom: 10px;
     }
-
     .stacked-images img {
       display: block;
       margin-bottom: 10px;
     }
-
     .loading-screen {
       position: fixed;
       top: 0;
@@ -210,7 +124,6 @@ body {
       align-items: center;
       z-index: 1000;
     }
-
     .header-text {
       font-size: 48px;
       font-weight: bold;
@@ -222,7 +135,6 @@ body {
       -webkit-text-fill-color: transparent;
       animation: gradientAnimation 3s infinite ease-in-out;
     }
-
     @keyframes gradientAnimation {
       0% {
         background-position: 0% 50%;
@@ -234,7 +146,6 @@ body {
         background-position: 0% 50%;
       }
     }
-
     #toast {
       visibility: hidden;
       min-width: 250px;
@@ -255,60 +166,51 @@ body {
       visibility: visible;
       opacity: 1;
     }
-#section2 {
-  overflow-y: auto;
-  max-height: calc(100vh - 40px);
-  padding: 20px;
-}
-
-#section2 {
-  scrollbar-width: thin;
-  scrollbar-color: #8B008B transparent;
-}
-
-#section2::-webkit-scrollbar {
-  width: 8px;
-}
-
-#section2::-webkit-scrollbar-track {
-  background: #1a1a1a;
-  border-radius: 10px;
-}
-
-#section2::-webkit-scrollbar-thumb {
-  background: #8B008B;
-  border-radius: 10px;
-}
-
-#section2::-webkit-scrollbar-thumb:hover {
-  background: #4B0082;
-}
+    #section2 {
+      overflow-y: auto;
+      max-height: calc(100vh - 40px);
+      padding: 20px;
+      scrollbar-width: thin;
+      scrollbar-color: #8B008B transparent;
+    }
+    #section2::-webkit-scrollbar {
+      width: 8px;
+    }
+    #section2::-webkit-scrollbar-track {
+      background: #1a1a1a;
+      border-radius: 10px;
+    }
+    #section2::-webkit-scrollbar-thumb {
+      background: #8B008B;
+      border-radius: 10px;
+    }
+    #section2::-webkit-scrollbar-thumb:hover {
+      background: #4B0082;
+    }
   </style>
 </head>
 <body>
   <div class="loading-screen">
     <a href="#" class="header-text">LUXE</a>
   </div>
-
   <div class="sidebar">
-  <img src="https://i.postimg.cc/bw6qvcFL/Bez-imeni-2.png?v=1" alt="Логотип" class="logo">
-  <a href="#" class="menu-item active" data-section="section1">
-    <img src="https://i.postimg.cc/FHT4kFf8/ico.png?v=1" alt="Иконка 1"> Играть
-  </a>
-  <a href="#" class="menu-item" data-section="section2">
-    <img src="https://i.postimg.cc/nrzBr7C0/20.png" alt="Иконка 2"> Использование данных
-  </a>
-  <a href="#" class="menu-item" data-section="section3">
-    <img src="https://i.postimg.cc/FsM0ZYYn/19.png" alt="Иконка 3"> Пустой рабочий стол
-  </a>
-	  <a href="#" class="menu-item" data-section="section4">
-    <img src="https://i.postimg.cc/FsM0ZYYn/19.png" alt="Иконка 4"> Браузер
-  </a>
-  <div class="copyright">
-    ©2025 Zerio Command.Все права защищены.
+    <img src="https://i.postimg.cc/bw6qvcFL/Bez-imeni-2.png?v=1" alt="Логотип" class="logo">
+    <a href="#" class="menu-item active" data-section="section1">
+      <img src="https://i.postimg.cc/FHT4kFf8/ico.png?v=1" alt="Иконка 1"> Играть
+    </a>
+    <a href="#" class="menu-item" data-section="section2">
+      <img src="https://i.postimg.cc/nrzBr7C0/20.png" alt="Иконка 2"> Использование данных
+    </a>
+    <a href="#" class="menu-item" data-section="section3">
+      <img src="https://i.postimg.cc/FsM0ZYYn/19.png" alt="Иконка 3"> Пустой рабочий стол
+    </a>
+    <a href="#" class="menu-item" data-section="section4">
+      <img src="https://i.postimg.cc/FsM0ZYYn/19.png" alt="Иконка 4"> Браузер
+    </a>
+    <div class="copyright">
+      ©2025 Zerio Command. Все права защищены.
+    </div>
   </div>
-</div>
-
   <div class="main-content">
     <section id="section1" class="active">
       <h2>
@@ -333,93 +235,72 @@ body {
       <p>С помощью этого способа можно легко понять, какие запускались приложения использующие интернет.</p>
       <h3>Открытие раздела Сеть и Интернет</h3>
       <p>Что бы открыть использовании данных есть несколько простых способов.</p>
-      <p>Нажмите [ WIN  + I ], эта комбинация откроет главную страницу настроек, после этого откройте раздел «Сеть и Интернет».</p>
+      <p>Нажмите [ WIN + I ], эта комбинация откроет главную страницу настроек, после этого откройте раздел «Сеть и Интернет».</p>
       <img src="https://i.postimg.cc/brDtzJF1/10.jpg" alt="34">
-	  <h3>Открытие панели использования данных</h3>
-	  <p>В зависимости от системы, этот пункт может находиться в разных местах на Win 10</p>
-	  <img src="https://i.postimg.cc/x1YRnwLq/11.jpg" alt="78">
-	  <p>После нажатия откроется меню,мы видим общее количество трафика за после 30 дней. Ниже в виде списка указаны файлы и количество трафика.</p>
-	  <p>Смотреть нужно только ниже 100 мегабайт, больше трафика читы не потребляют.</p>
-	  <img src="https://i.postimg.cc/5NFCTnGy/12.jpg" alt="87">
-	  <p>Как понять что это чит?</p>
-	  <p>Вы должны сами понимать, какой файл софт, ниже представлены примеры читов</p>
-	  <img src="https://i.postimg.cc/3w2KMbQ8/14.png" alt="7657">
-	  <p>ㅤ</p>
-	  <img src="https://i.postimg.cc/GmyRYS2F/13.png" alt="7657">
-	  <p>ㅤ</p>
-	  <img src="https://i.postimg.cc/DfS7nZTp/15.png" alt="7657">
-	  <h3>1.Известные проблемы и обнаружение очисток</h3>
-	  <b>Нет кнопки Использование данных.</b>
-	  <p>Эта проблема решается очень легко, часто игроки отключают эту функцию через сервисы в системе, чтобы админы не могли их проверить.</p>
-	  <p>Вам необходимо нажать [  WIN  + R  ], эта комбинация откроет окно «Выполнить. Введите туда «services.msc», после этого нажмите [ Enter ].</p>
-	  <p>После этого в списке вы должны найти службу «Использование данных», нажать ПКМ и зайти в свойства.</p>
-	  <img src="https://i.postimg.cc/4NG2wLBv/16.jpg" alt="7е7">
-	  <p>После этого в свойствах, выберите Тип запуска: «Автоматически», и нажмите [Применить]. Далее загорится кнопка Запустить, нажмите на нее и нажмите [ОК].</p>
-	  <p>После этого использование данных будет работать 👍</p>
-	  <img src="https://i.postimg.cc/qMGbFs5P/17.jpg" alt="767">
-	  <h3>2.Использование данных сломано ( Ничего не отображает )</h3>
-	  <p>Эта проблема возникает из-за того, что игрок через софт вырезал эту функцию из системы. Восстановить не получится,так что пропустите этот пункт проверки и проверяйте дальше!</p> 
-	  <img src="https://i.postimg.cc/cCSh9CM1/18.avif" alt="77">
-	  </section>
-	<section id="section3">
-    <h2><img src="https://i.postimg.cc/FsM0ZYYn/19.png" alt="Иконка 3"> Пустой рабочий стол</h2>
-    <p>Показ рабочего стола</p>
-    <p>Зачастую читеры думают,что все админы дурачки и прячут на рабочем столе,скрывая значки рабочего стола,чтобы вернуть,нажмите ПКМ -> Вид -> Отображать значки рабочего стола.</p>
-	<p><b>Подробнее будет написано в проверке через прогу</b></p>
-	
-  </section>
-</div>
-
+      <h3>Открытие панели использования данных</h3>
+      <p>В зависимости от системы, этот пункт может находиться в разных местах на Win 10</p>
+      <img src="https://i.postimg.cc/x1YRnwLq/11.jpg" alt="78">
+      <p>После нажатия откроется меню, мы видим общее количество трафика за после 30 дней. Ниже в виде списка указаны файлы и количество трафика.</p>
+      <p>Смотреть нужно только ниже 100 мегабайт, больше трафика читы не потребляют.</p>
+      <img src="https://i.postimg.cc/5NFCTnGy/12.jpg" alt="87">
+      <p>Как понять что это чит?</p>
+      <p>Вы должны сами понимать, какой файл софт, ниже представлены примеры читов</p>
+      <img src="https://i.postimg.cc/3w2KMbQ8/14.png" alt="7657">
+      <p>ㅤ</p>
+      <img src="https://i.postimg.cc/GmyRYS2F/13.png" alt="7657">
+      <p>ㅤ</p>
+      <img src="https://i.postimg.cc/DfS7nZTp/15.png" alt="7657">
+      <h3>1.Известные проблемы и обнаружение очисток</h3>
+      <b>Нет кнопки Использование данных.</b>
+      <p>Эта проблема решается очень легко, часто игроки отключают эту функцию через сервисы в системе, чтобы админы не могли их проверить.</p>
+      <p>Вам необходимо нажать [ WIN + R ], эта комбинация откроет окно «Выполнить». Введите туда «services.msc», после этого нажмите [ Enter ].</p>
+      <p>После этого в списке вы должны найти службу «Использование данных», нажать ПКМ и зайти в свойства.</p>
+      <img src="https://i.postimg.cc/4NG2wLBv/16.jpg" alt="7е7">
+      <p>После этого в свойствах, выберите Тип запуска: «Автоматически», и нажмите [Применить]. Далее загорится кнопка Запустить, нажмите на нее и нажмите [ОК].</p>
+      <p>После этого использование данных будет работать 👍</p>
+      <img src="https://i.postimg.cc/qMGbFs5P/17.jpg" alt="767">
+      <h3>2.Использование данных сломано ( Ничего не отображает )</h3>
+      <p>Эта проблема возникает из-за того, что игрок через софт вырезал эту функцию из системы. Восстановить не получится, так что пропустите этот пункт проверки и проверяйте дальше!</p>
+      <img src="https://i.postimg.cc/cCSh9CM1/18.avif" alt="77">
+    </section>
+    <section id="section3">
+      <h2><img src="https://i.postimg.cc/FsM0ZYYn/19.png" alt="Иконка 3"> Пустой рабочий стол</h2>
+      <p>Показ рабочего стола</p>
+      <p>Зачастую читеры думают, что все админы дурачки и прячут на рабочем столе, скрывая значки рабочего стола, чтобы вернуть, нажмите ПКМ -> Вид -> Отображать значки рабочего стола.</p>
+      <p><b>Подробнее будет написано в проверке через прогу</b></p>
+    </section>
+  </div>
   <div id="toast">Текст скопирован!</div>
-
   <audio id="copy-sound" src="https://www.dropbox.com/scl/fi/lx5y5nzf208hq1v0gqdo8/apple-pay-succes.mp3?rlkey=9gryxid0hmm77j9q173k9nvr0&st=6h4u7wr3&dl=0&raw=1"></audio>
-
   <script>
-document.addEventListener('contextmenu', (e) => {
-  e.preventDefault();
-});
+    document.addEventListener('contextmenu', (e) => {
+      e.preventDefault();
+    });
     document.addEventListener('DOMContentLoaded', () => {
       const menuItems = document.querySelectorAll('.menu-item');
       const sections = document.querySelectorAll('.main-content section');
-
       setTimeout(() => {
         document.querySelector('.loading-screen').style.display = 'none';
       }, 3000);
-
       menuItems.forEach(item => {
         item.addEventListener('click', (e) => {
           e.preventDefault();
-
           menuItems.forEach(menuItem => menuItem.classList.remove('active'));
-
           item.classList.add('active');
-
           sections.forEach(section => section.classList.remove('active'));
-
           const targetSectionId = item.getAttribute('data-section');
           document.getElementById(targetSectionId).classList.add('active');
         });
       });
-
-      const icon1 = document.getElementById('icon-1');
       const copyIcon1 = document.getElementById('copy-icon-1');
       const copyIcon2 = document.getElementById('copy-icon-2');
-      const icon2 = document.getElementById('icon-2');
-      const image2 = document.getElementById('image-2');
-
-      retryImageLoad(icon1, 'https://i.postimg.cc/FHT4kFf8/ico.png?v=1');
       retryImageLoad(copyIcon1, 'https://i.postimg.cc/yYV6DbQJ/cop.png?v=1');
       retryImageLoad(copyIcon2, 'https://i.postimg.cc/yYV6DbQJ/cop.png?v=1');
-      retryImageLoad(icon2, 'https://i.postimg.cc/5yGDCYtp/setting.png?v=1');
-      retryImageLoad(image2, 'https://via.placeholder.com/150?v=1');
-
       const sound = document.getElementById('copy-sound');
       retryAudioLoad(sound, 'https://www.dropbox.com/scl/fi/lx5y5nzf208hq1v0gqdo8/apple-pay-succes.mp3?rlkey=9gryxid0hmm77j9q173k9nvr0&st=6h4u7wr3&dl=0&raw=1');
     });
-
     function retryImageLoad(imageElement, imageUrl, retries = 3, delay = 1000) {
       let attempts = 0;
-
       const loadImage = () => {
         imageElement.src = imageUrl;
         imageElement.onerror = () => {
@@ -432,13 +313,10 @@ document.addEventListener('contextmenu', (e) => {
           }
         };
       };
-
       loadImage();
     }
-
     function retryAudioLoad(audioElement, audioUrl, retries = 3, delay = 1000) {
       let attempts = 0;
-
       const loadAudio = () => {
         audioElement.src = audioUrl;
         audioElement.onerror = () => {
@@ -451,22 +329,17 @@ document.addEventListener('contextmenu', (e) => {
           }
         };
       };
-
       loadAudio();
     }
-
     function copyText(elementId) {
       const textToCopy = document.getElementById(elementId).innerText;
       const toast = document.getElementById('toast');
       const sound = document.getElementById('copy-sound');
-
       navigator.clipboard.writeText(textToCopy).then(() => {
         sound.currentTime = 0;
         sound.play();
-
         toast.textContent = `Текст скопирован`;
         toast.classList.add('show');
-
         setTimeout(() => {
           toast.classList.remove('show');
         }, 3000);
